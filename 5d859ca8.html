@@ -54,7 +54,14 @@
             background-color: #FFFFFF;
             text-align: center;
             box-shadow: 3px 3px 3px #e1e1e1;
-        }        
+        }  
+        .sendshow{
+            margin: 5px 12px;
+            height: 114px;
+            background-color: #FFFFFF;
+            text-align: center;
+            box-shadow: 3px 3px 3px #e1e1e1;
+        }                
         .switrgbhow table tr td img{
             height: 70px;
         }
@@ -93,20 +100,17 @@
                     <td valign="middle"><img src="image/02-red.svg" alt="" name="rgbimgid" id="rgbimgid"><br/><span>温度阀值</span></td>
                 </tr>                
             </table>
-        </div>
-     <div class="content">
+        </div>  
         <div class="title">
           <span>信息发送</span>
-        </div>        
- </div>        
-        <div class="switrgbhow">
+        </div>                       
+        <div class="sendshow">
             <table width="100%">
                 <tr align="center" height="114px">
                     <td valign="middle"><img src="image/03-turn-on.svg" alt="" name="sendbtn" id="sendbtn"><br/><span id="sendspan">开</span></td>
-                   
                 </tr>                
             </table>
-        </div>       
+        </div>              
         <!-- <div class="humihis">
             <div id="device_id"></div>
             <div id="debug"></div>
@@ -242,12 +246,11 @@
             var commond = '{"rgbled_switch":true,"rgbled_hues":60, "rgbled_saturation":100, "rgbled_brightness":100}'; 
             client.publish(topic, commond);
         }
-    }
 
-        // 控制按钮显示的事件
+              // 控制按钮显示的事件
         $("#sendbtn").click(function() {
        
-	        var topic = device_id+'/in';
+            var topic = device_id+'/in';
             var commond;
             var swtimg = $("#sendbtn").attr("src");
             if("./image/03-turn-on.svg" == swtimg){
@@ -261,6 +264,10 @@
             }
             client.publish(topic, commond);
         });
+
+    }
+
+  
     // 日志打印在页面的部分    
     // var i = 0;
     // console.log = (function(old_funct, div_log) {
