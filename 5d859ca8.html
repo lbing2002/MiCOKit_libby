@@ -103,10 +103,16 @@
         <div class="sendshow">
             <table width="100%">
                 <tr align="center" height="114px">
-                    <td valign="middle"><img id="sendbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="sendspan">开</span></td>
-                </tr>                
+                <label class="item-input-wrapper">
+                 <td valign="middle"  align="middle"><input type="text" placeholder="message" id="message">
+                 </label>
+                    <td valign="middle" ><img id="sendbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="sendspan">开</span></td>
+                </tr> 
+
+
+
             </table>
-        </div>              
+        </div>   
         <!-- <div class="humihis">
             <div id="device_id"></div>
             <div id="debug"></div>
@@ -244,6 +250,7 @@
             client.publish(topic, commond);
         }
 
+        var inputMessage = document.getElementById('message');
               // 控制按钮显示的事件
         $("#sendbtn").click(function() {
        
@@ -260,7 +267,17 @@
                 $("#sendspan").text("开");
             }
             client.publish(topic, commond);
+
+            if ( inputMessage.value.length == 0 ) return;
+            topic = device_id+'/in/write';
+            commond = '{"11":"' + inputMessage.value + '"}';
+            client.publish(topic, commond);
+            //console.log(inputMessage.value);
+            inputMessage.value = '';
+
+
         });
+
 
     }
 
