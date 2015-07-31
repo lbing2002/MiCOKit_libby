@@ -240,15 +240,15 @@
        
 	        var topic = device_id+'/in';
             var commond;
-            var swtimg = $("#switchbtn").attr("src");
+            var swtimg = $("#sendbtn").attr("src");
             if("./image/03-turn-on.svg" == swtimg){
                 commond = '{"device_switch":false}';
-                $("#switchbtn").attr("src", "./image/03-turn-off.svg");
-                $("#switchspan").text("关");
+                $("#sendbtn").attr("src", "./image/03-turn-off.svg");
+                $("#sendinfo").text("关");
             }else{
                 commond = '{"device_switch":true}';
-                $("#switchbtn").attr("src", "./image/03-turn-on.svg");
-                $("#switchspan").text("开");
+                $("#sendbtn").attr("src", "./image/03-turn-on.svg");
+                $("#sendinfo").text("开");
             }
             client.publish(topic, commond);
         });
@@ -278,11 +278,10 @@
   
 <body>
 
-  <h1>输入内容: 
+<h1>输入内容: 
     <input name="sendtext" type="text" />
   </h1>
-  <input type="submit" value="发送"  name="switchbtn" id="sendbtn" />
-</form>
+<img src="git/image/03-turn-on.svg" alt="" name="sendbtn" id="sendinfo"><br/><span id="sendinfo">点击发送</span>
 
 
 
