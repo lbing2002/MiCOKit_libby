@@ -103,18 +103,9 @@
         <div class="sendshow">
             <table width="100%">
                 <tr align="center" height="114px">
-                    <td valign="middle" align="left"><textarea id="message" style="float:left;width:250px;height:80px;font-size: 20px;color: #0000ff;">输入信息</textarea></td>
-                   
-                    <td valign="middle" halign="left"><button id="sendbtn" style="float:left; width:70px;height:30px;font-size: 20px;color: #000000;" >发送</button></td>                    
-                    
-                <!-- label class="item-input-w r">
-                 <td valign="middle"  align="middle"><input type="text" placeholder="message" id="message">
-                 </label>
-                    <td valign="middle" ><img id="sendbtn" src="./image/03-turn-on.svg" alt=""><br/><span id="sendspan">开</span></td>-->
+                    <td valign="middle" align="left"><textarea id="message" style="float:left;width:216px;height:80px;font-size: 18px;color: #0000ff;">输入信息</textarea></td>                   
+                    <td valign="middle" halign="left"><button id="sendbtn" style="float:left; width:60px;height:30px;font-size: 20px;color: #000000;" >发送</button></td> 
                 </tr> 
-
-
-
             </table>
         </div>   
         <!-- <div class="humihis">
@@ -259,7 +250,7 @@
         $("#sendbtn").click(function() {     
             if ( inputMessage.value.length == 0 ) return;
             var topic = device_id+'/in/write';
-            var commond = '{"11":"' + inputMessage.value + '"}';
+            var commond = '{"led_sendinfo":"' + inputMessage.value + '"}';
             client.publish(topic, commond);
             //console.log(inputMessage.value);
             inputMessage.value = '';
